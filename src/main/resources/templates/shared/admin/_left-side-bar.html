@@ -1,0 +1,83 @@
+  <html xmlns:th="http://www.thymeleaf.org">
+   <div id="left">
+            <div class="media user-media bg-dark dker">
+                <div class="user-media-toggleHover">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="user-wrapper bg-dark">
+                    <a class="user-link" href="">
+                        <img class="media-object img-thumbnail user-img rounded-circle admin_img3" alt="User Picture"
+                             th:src="@{/resources/admin/img/thy.jpg}">
+                        <p class="text-white user-info">Welcome Sothy Kmeng Wat</p>
+                    </a>
+                    <div class="search_bar col-lg-12">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="search">
+                            <span class="input-group-btn">
+							<button class="btn without_border" type="button"><span class="fa fa-search">
+							</span></button>
+							</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #menu -->
+            <ul id="menu" class="bg-blue dker">
+                <li class="active">
+                    <a th:href="@{/admin/dashboard}">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title" th:text="#{dashboard}">&nbsp;Dashboard</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a th:href="@{/admin/user-cu}">
+                        <i class="fa fa-user"></i>
+                        <span class="link-title" th:text="#{user-cu}">&nbsp;User Form</span>
+                    </a>
+                </li>
+            
+                <li class="">
+                    <a th:href="@{/admin/user-list}">
+                        <i class="fa fa-th"></i>
+                        <span class="link-title" th:text="#{user-list}">&nbsp; User List</span>
+                    </a>
+                </li>
+                
+                <li class="">
+                    <a th:href="@{/admin/role-cu}">
+                        <i class="fa fa-user-md"></i>
+                        <span class="link-title" th:text="#{role-cu}">&nbsp; Role Form</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a th:href="@{/admin/role-list}">
+                        <i class="fa fa-calendar"></i>
+                        <span class="link-title" th:text="#{role-list}">&nbsp; Role List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-globe"></i>
+                        <span class="link-title" th:text="#{language}">&nbsp; Language</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul>
+                        <li th:with="currentUrl=(${#httpServletRequest.requestURI})">
+                            <a th:href="@{${currentUrl}(lang=#{en})}">
+                                <i class="fa fa-angle-right"></i><span th:text="#{english}">&nbsp; English</span> 
+                            </a>
+                        </li>
+                        <li th:with="currentUrl=(${#httpServletRequest.requestURI})">
+                            <a th:href="@{${currentUrl}(lang=#{kh})}">
+                                <i class="fa fa-angle-right"></i><span th:text="#{khmer}">&nbsp; Khmer</span>
+                            </a>
+                        </li>
+                   </ul>
+                </li>
+
+            </ul>
+            <!-- /#menu -->
+        </div>
+        <!-- /#left -->
+  </html>

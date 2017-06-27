@@ -1,25 +1,34 @@
 package org.khshrd.app.model;
 
 public class User {
-	private int id;
-	private String Username;
-	private String password;
+	private int uid;
+	private String username;
+	private String pass;
 	private String gender;
 	private String email;
 	private String phone;
-	private String addres;
+	private String address;
+	private String hashcode;
 	public User(){
 		
 	}
-	public User(int id,String username,String gender, String email, String phone, String addres) {
+	public User(int uid,String username,String pass,String gender, String email, String phone, String address,String hashcode) {
 		super();
-		this.id=id;
-		Username = username;
+		this.uid=uid;
+		this.username = username;
+		this.pass=pass;
 		this.gender=gender;
 		this.email = email;
 		this.phone = phone;
-		this.addres = addres;
+		this.address = address;
+		this.hashcode=hashcode;
 		
+	}
+	public String getHashcode(){
+		return hashcode;
+	}
+	public void setUser_has(String hashcode){
+		this.hashcode=hashcode;
 	}
 	public String getGender(){
 		return gender;
@@ -27,23 +36,23 @@ public class User {
 	public void setGender(String gender){
 		this.gender=gender;
 	}
-	public int getId() {
-		return id;
+	public int getUid() {
+		return uid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int uid) {
+		this.uid = uid;
 	}
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
-	public String getPassword() {
-		return password;
+	public String getPass() {
+		return pass;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPass(String password) {
+		this.pass = password;
 	}
 	public String getEmail() {
 		return email;
@@ -57,11 +66,11 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getAddres() {
-		return addres;
+	public String getAddress() {
+		return address;
 	}
-	public void setAddres(String addres) {
-		this.addres = addres;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 }

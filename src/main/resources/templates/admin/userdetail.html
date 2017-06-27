@@ -7,26 +7,27 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div layout:fragment="content" >
-		<div id="content" class="bg-container">
+
+<div layout:fragment="content" >
+	 <div id="content" class="bg-container">
                 <header class="head">
                     <div class="main-bar">
                         <div class="row">
                         <div class="col-lg-6 col-md-4 col-sm-4">
                             <h4 class="nav_top_align skin_txt">
                                         <i class="fa fa-th"></i>
-                                        <span th:text="#{user-list}">User List</span>
+                                        <span th:text="#{detail}">Detail</span>
                                     </h4>
                         </div>
                         <div class="col-lg-6 col-md-8 col-sm-8">
                             <ol class="breadcrumb float-right nav_breadcrumb_top_align">
                                 <li class="breadcrumb-item">
                                     <a href="index.html">
-                                        <i class="fa fa-home" data-pack="default" data-tags=""></i> <span th:text="#{dashboard}">Dashboard</span>
+                                        <i class="fa fa-home" data-pack="default" data-tags=""></i> <span th:text="#{user-list}">User list</span>
                                     </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#"><span th:text="#{user-list}">User List</span></a>
+                                    <a href="#"><span th:text="#{detail}">Detail</span></a>
                                 </li>
                            
                             </ol>
@@ -55,12 +56,11 @@
                                                     <th th:text="#{phone}">Phone</th>
                                                     <th th:text="#{password}">Password</th>
                                                     <th th:text="#{address}">Address</th>
-                                                    <th>Minipulate</th>
                                                 </tr>
                                                 </thead>
                                                 
                                                 <tbody>
-                                                <tr th:each="u:${USERS}">
+                                                <tr th:each="u:${USER}">
                                                     <td th:text=${u.uid}></td>
                                                     <td th:text=${u.username}></td>
                                                     <td th:text=${u.gender}></td>
@@ -68,27 +68,6 @@
                                                     <td th:text=${u.phone}></td>
                                                     <td th:text=${u.pass}></td>
                                                     <td th:text=${u.address}></td>
-                                                    <td>
-                                                    	
-                                                    	<a th:href="@{/admin/user-edit}+${u.hashcode}"><button class="btn btn-primary" type="submit" > 
-                                                    	    <i class="fa fa-pencil"></i>
-		                                                    <span th:text="#{update}">Update</span>
-		                                                </button>
-		                                                </a>
-		                                                    
-		                                                <a th:href="@{/admin/user/remove(hashcode=${u.hashcode})}">
-		                                                <button class="btn btn-warning" type="button">
-		                                                    <i class="fa fa-trash-o"></i>
-		                                                    <span th:text="#{reset}">Reset</span>
-		                                                </button>
-		                                                </a>
-		                                                <a th:href="@{/admin/user/aid(hashcode=${u.hashcode})}">
-		                                                <button class="btn btn-danger" type="button">
-		                                                    <i class="fa fa-list-alt"></i>
-		                                                    <span th:text="#{detail}">Detail</span>
-		                                                </button>
-		                                                </a>
-                                                    </td>
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -106,6 +85,8 @@
                 <!-- /.outer -->
             </div>
             <!-- /#content -->
-	</div>
+					
+								
+</div>
 </body>
 </html>

@@ -45,7 +45,7 @@
                             <div>
                                 <h4><span th:text="#{profile}">Personal Information</span></h4>
                             </div>
- <form class="form-horizontal login_validator" id="tryitForm" th:action= "${addStatus}=='true' ? @{/admin/user-list} : @{/admin/update/}+*{hashcode}" :
+ <form class="form-horizontal login_validator" id="tryitForm" th:action= "${addStatus}==true ? @{/admin/user-list} : @{/admin/update/}+*{hashcode}" :
                                   method="post" th:object="${user}">
                                 <!--<form role="form" id="tryitForm" action="add_user.html" class="form-horizontal" method="post" auete="on">-->
                                 <div class="row">

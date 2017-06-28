@@ -82,7 +82,7 @@ public class MainController {
 	 */
 	@PostMapping("/user-list")
 	public String userlist(@ModelAttribute User user, ModelMap model){
-		model.addAttribute("user", userService.save(user));
+		model.addAttribute("USERS", userService.save(user));
 		model.addAttribute("addStatus", true);
 		return "redirect:/admin/user-list";
 	
@@ -104,6 +104,7 @@ public class MainController {
 	public String UserList(ModelMap model){
 		users = userService.getAllUser();
 		model.addAttribute("USERS", users);
+		//model.addAttribute("addStatus", true);
 		return "admin/user-list";
 	}
 	@RequestMapping(value = "/user/aid{hashcode}")

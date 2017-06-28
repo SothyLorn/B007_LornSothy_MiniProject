@@ -46,6 +46,21 @@ public class UserServiceImp implements UserService{
 		// TODO Auto-generated method stub
 		return userrepos.findOne(hashcode);
 	}
+	@Override
+	public int findUserNumber() {
+		// TODO Auto-generated method stub
+		return userrepos.findUserNumber();
+	}
+	@Override
+	public int findFemaleUserNumber() {
+		// TODO Auto-generated method stub
+		return userrepos.findFemaleUserNumber();
+	}
+	@Override
+	public int findMaleUserNumber() {
+		// TODO Auto-generated method stub
+		return userrepos.findMaleUserNumber();
+	}
 	
 
 

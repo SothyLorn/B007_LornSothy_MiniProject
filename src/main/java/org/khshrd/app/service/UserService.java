@@ -10,4 +10,7 @@ public interface UserService {
 	public boolean delete(String hashcode);
 	public boolean update(User user);
 	public User findOne(String hashcode);
+	int findUserNumber();
+    int findFemaleUserNumber();
+    int findMaleUserNumber();
 }

@@ -70,14 +70,14 @@
                                                     <td th:text=${u.address}></td>
                                                     <td>
                                                     	
-                                                    	<a th:href="@{/admin/user-edit}+${u.hashcode}"><button class="btn btn-primary" type="submit" > 
+                                                    	<a th:href="@{/admin/user-edit/{hashcode}(hashcode=${u.hashcode})}"><button class="btn btn-primary" type="submit" > 
                                                     	    <i class="fa fa-pencil"></i>
 		                                                    <span th:text="#{update}">Update</span>
 		                                                </button>
 		                                                </a>
 		                                                    
 		                                                <a th:href="@{/admin/user/remove(hashcode=${u.hashcode})}">
-		                                                <button class="btn btn-warning" type="button">
+		                                                <button class="btn btn-warning" type="button" onclick="return confirm('Are you Sure?')">
 		                                                    <i class="fa fa-trash-o"></i>
 		                                                    <span th:text="#{reset}">Reset</span>
 		                                                </button>

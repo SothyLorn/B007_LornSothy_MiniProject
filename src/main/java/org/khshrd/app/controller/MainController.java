@@ -32,12 +32,12 @@ public class MainController {
 		this.userService = userService;
 	}
 	//update
-	@GetMapping("/user-edit")
-	public String edit(ModelMap model, @RequestParam("hashcode") String hashcode) {
+	@GetMapping("/user-edit/{hashcode}")
+	public String edit(ModelMap model, @PathVariable("hashcode") String hashcode) {
 		User user=userService.findOne(hashcode);
 		model.addAttribute("user", user);
 		model.addAttribute("addStatus", false);
-		System.out.println(user.getHashcode());
+		System.out.println("Hashcode at edit" +user.getHashcode());
 		return "/admin/user-cu";
 	}
 //	@RequestMapping("/user-edit")
@@ -57,12 +57,14 @@ public class MainController {
 		return "redirect:/admin/user-list";
 	}
 	
-	@RequestMapping(value="/update/{hashcode}")
-	public String update(@ModelAttribute("user") User user,@PathVariable("hashcode") String hashcode) {		
+	@PostMapping(value="/update/{hashcode}")
+	public String update(@PathVariable("hashcode") String hashcode, @ModelAttribute("user") User user) {		
+		//userService.update(user);	
 		user.setUser_has(hashcode);
-		
-		userService.update(user);		
-		System.out.println(user.getHashcode());
+		System.out.println("hashcode at " + user.getHashcode());
+		if(userService.update(user)){
+			System.out.println("updated!!");
+		}
 		return "redirect:/admin/user-list";
 	}
 	@RequestMapping("/user-cu")
@@ -81,6 +83,7 @@ public class MainController {
 	@PostMapping("/user-list")
 	public String userlist(@ModelAttribute User user, ModelMap model){
 		model.addAttribute("user", userService.save(user));
+		model.addAttribute("addStatus", true);
 		return "redirect:/admin/user-list";
 	
 	}
@@ -88,10 +91,18 @@ public class MainController {
     public List<User>getAllUser(){
     	return userService.getAllUser();
     }
+	@RequestMapping("/dashboard")
+	public String dashboard(ModelMap model){
+		model.addAttribute("USERS", userService.getAllUser());
+		model.addAttribute("total", userService.findUserNumber());
+		model.addAttribute("male", userService.findMaleUserNumber());
+		model.addAttribute("female", userService.findFemaleUserNumber());
+		return "admin/dashboard";
+		
+	}
 	@RequestMapping("/user-list")
 	public String UserList(ModelMap model){
 		users = userService.getAllUser();
-		
 		model.addAttribute("USERS", users);
 		return "admin/user-list";
 	}

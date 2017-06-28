@@ -41,4 +41,13 @@ public interface UserRepos {
 	
 	@Delete("UPDATE tbuser SET status='0' WHERE hashcode=#{hashcode}")
 	public boolean delete(@Param("hashcode") String hashcode);
+	
+	@Select("SELECT COUNT(uid) FROM tbuser WHERE status='t'")
+    int findUserNumber();
+
+    @Select("SELECT COUNT(uid) FROM tbuser WHERE status='t' and gender='Male'")
+    int findMaleUserNumber();
+
+    @Select("SELECT COUNT(uid) FROM tbuser WHERE status='t'and gender='Female'")
+    int findFemaleUserNumber();
 }
